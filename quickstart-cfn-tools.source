@@ -130,10 +130,10 @@ function qs_get-osversion () {
 function qs_get-python-path() {
     local __return=$1
     # Set PYTHON_EXECUTEABLE to default python version
-    if command -v python > /dev/null 2>&1; then
-       PYTHON_EXECUTEABLE=$(which python)
-    else
+    if command -v python3 > /dev/null 2>&1; then
        PYTHON_EXECUTEABLE=$(which python3)
+    else
+       PYTHON_EXECUTEABLE=$(which python)
     fi
 
     #Return python path or return code (1)
@@ -279,22 +279,35 @@ function qs_aws-cfn-bootstrap() {
             export PATH=$PATH:/opt/aws/bin
             sudo yum install -y python36-pip
             sudo alternatives --set python /usr/bin/python3.6
+    elif [ "$INSTANCE_OSTYPE" == "ubuntu" ] && [ "$INSTANCE_OSVERSION" == "14.04" ]; then
+        echo "Warning: Support for this OS Version is deprecated - Consider upgrading to 20.04"
+        sudo apt-get update -y
+        #sudo apt-get install python2.7 python-pip -y
+        #sudo pip2 install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz
+	sudo apt install python3 python3-pip -y
+	sudo pip3 install  https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz
     elif [ "$INSTANCE_OSTYPE" == "ubuntu" ] && [ "$INSTANCE_OSVERSION" == "16.04" ]; then
         echo "Warning: Support for this OS Version is deprecated - Consider upgrading to 20.04"
         sudo apt-get update -y
-        sudo apt-get install python2.7 python-pip -y
-        sudo pip2 install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz
+        #sudo apt-get install python2.7 python-pip -y
+        #sudo pip2 install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz
+	sudo apt install python3 python3-pip -y
+	sudo pip3 install  https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz
     elif [ "$INSTANCE_OSTYPE" == "ubuntu" ] && [ "$INSTANCE_OSVERSION" == "18.04" ]; then
         echo "Warning: Support for this OS Version is deprecated - Consider upgrading to 20.04"
         sudo apt-get update -y
-        sudo apt-get install python-pip -y
-        sudo pip2 install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz
+        #sudo apt-get install python-pip -y
+        #sudo pip2 install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz
+        sudo apt install python3 python3-pip -y
+	sudo pip3 install  https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz
     elif [ "$INSTANCE_OSTYPE" == "ubuntu" ] && [ "$INSTANCE_OSVERSION" == "20.04" ]; then
         sudo apt-get update -y
-        apt-get install python2.7 -y
-        curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py
-        sudo python2.7 get-pip.py
-        sudo pip2 install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz
+        #apt-get install python2.7 -y
+        #curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py
+        #sudo python2.7 get-pip.py
+        #sudo pip2 install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz
+        sudo apt install python3 python3-pip -y
+	sudo pip3 install  https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz
     elif [ "$INSTANCE_OSTYPE" == "rhel" ]; then
         yum update -y
         pip install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz
