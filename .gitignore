@@ -1,2 +1,5 @@
 taskcat_outputs/
 .taskcat/
+.idea
+super-linter.log
+
