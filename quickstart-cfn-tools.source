@@ -130,7 +130,7 @@ function qs_get-osversion () {
 function qs_get-python-path() {
     local __return=$1
     # Set PYTHON_EXECUTEABLE to default python version
-    if command -v python3.9 > /dev/null 2>&1; then
+    if command -v python3.8 > /dev/null 2>&1; then
        PYTHON_EXECUTEABLE=$(which python3.9)
     elif command -v python3 > /dev/null 2>&1; then
        PYTHON_EXECUTEABLE=$(which python3)
@@ -289,8 +289,8 @@ function qs_aws-cfn-bootstrap() {
         #sudo pip2 install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz
 	sudo apt install python3 python3-pip -y
 	#Throws "AttributeError: 'HTMLParser' object has no attribute 'unescape'", this has been depreciated since python3.4, removed in 3.9. Should be fixed by AWS at some point and we'll need to switch to 3.9
-	#sudo pip3.9 install  https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz
-	sudo pip3 install  https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz
+	sudo pip3.8 install  https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz
+	#sudo pip3 install  https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz
     elif [ "$INSTANCE_OSTYPE" == "ubuntu" ] && [ "$INSTANCE_OSVERSION" == "16.04" ]; then
         echo "Warning: Support for this OS Version is deprecated - Consider upgrading to 20.04"
         sudo apt-get update -y
@@ -299,8 +299,8 @@ function qs_aws-cfn-bootstrap() {
         #sudo pip2 install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz
 	sudo apt install python3 python3-pip -y
 	#Throws "AttributeError: 'HTMLParser' object has no attribute 'unescape'", this has been depreciated since python3.4, removed in 3.9. Should be fixed by AWS at some point and we'll need to switch to 3.9
-	#sudo pip3.9 install  https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz
-	sudo pip3 install  https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz
+	sudo pip3.8 install  https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz
+	#sudo pip3 install  https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz
     elif [ "$INSTANCE_OSTYPE" == "ubuntu" ] && [ "$INSTANCE_OSVERSION" == "18.04" ]; then
         echo "Warning: Support for this OS Version is deprecated - Consider upgrading to 20.04"
         sudo apt-get update -y
@@ -308,8 +308,8 @@ function qs_aws-cfn-bootstrap() {
         #sudo pip2 install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz
         sudo apt install python3 python3-pip -y
 	#Throws "AttributeError: 'HTMLParser' object has no attribute 'unescape'", this has been depreciated since python3.4, removed in 3.9. Should be fixed by AWS at some point and we'll need to switch to 3.9
-	#sudo pip3.9 install  https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz
-	sudo pip3 install  https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz
+	sudo pip3.8 install  https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz
+	#sudo pip3 install  https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz
     elif [ "$INSTANCE_OSTYPE" == "ubuntu" ] && [ "$INSTANCE_OSVERSION" == "20.04" ]; then
         sudo apt-get update -y
         #apt-get install python2.7 -y
@@ -318,8 +318,8 @@ function qs_aws-cfn-bootstrap() {
         #sudo pip2 install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz
         sudo apt install python3 python3-pip -y
 	#Throws "AttributeError: 'HTMLParser' object has no attribute 'unescape'", this has been depreciated since python3.4, removed in 3.9. Should be fixed by AWS at some point and we'll need to switch to 3.9
-	#sudo pip3.9 install  https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz
-	sudo pip3 install  https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz
+	sudo pip3.8 install  https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz
+	#sudo pip3 install  https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz
     elif [ "$INSTANCE_OSTYPE" == "rhel" ]; then
         yum update -y
         pip install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz
