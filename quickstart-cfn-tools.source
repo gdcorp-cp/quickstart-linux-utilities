@@ -131,7 +131,7 @@ function qs_get-python-path() {
     local __return=$1
     # Set PYTHON_EXECUTEABLE to default python version
     if command -v python3.8 > /dev/null 2>&1; then
-       PYTHON_EXECUTEABLE=$(which python3.9)
+       PYTHON_EXECUTEABLE=$(which python3.8)
     elif command -v python3 > /dev/null 2>&1; then
        PYTHON_EXECUTEABLE=$(which python3)
     else
