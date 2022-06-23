@@ -326,13 +326,13 @@ function qs_aws-cfn-bootstrap() {
 	sudo pip3 install  https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz
     elif [ "$INSTANCE_OSTYPE" == "rhel" ]; then
         yum update -y
-        pip install "pystache>=0.4.0,<0.6.0"
-        pip install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz
+        sudo pip3 install "pystache>=0.4.0,<0.6.0"
+        sudo pip3 install  https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz
     elif [ "$INSTANCE_OSTYPE" == "centos" ]; then
         yum update -y
         qs_bootstrap_pip
-        pip install "pystache>=0.4.0,<0.6.0"
-        pip install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz
+        sudo pip3 install "pystache>=0.4.0,<0.6.0"
+        sudo pip3 install  https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz
     elif [ "$INSTANCE_OSTYPE" == "fedora" ]; then
         pip install "pystache>=0.4.0,<0.6.0"
         pip install https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-latest.tar.gz
