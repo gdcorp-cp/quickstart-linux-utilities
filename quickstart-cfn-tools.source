@@ -225,10 +225,13 @@ function  qs_enable_epel() {
         yum install -y epel-release
     elif [ "$INSTANCE_OSTYPE" == "fedora" ]; then
         echo "Enabled!"
+    elif [ "$INSTANCE_OSTYPE" == "amzn" ] && [ "$INSTANCE_OSVERSION" == "2" ]; then
+        amazon-linux-extras install epel -y
+    elif [ "$INSTANCE_OSTYPE" == "amzn" ]; then
+        yum-config-manager --enable epel
     else
         exit 1
     fi
-
 }
 
 # Updates supported operating systems to latest
